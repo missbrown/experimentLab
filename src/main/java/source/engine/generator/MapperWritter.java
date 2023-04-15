@@ -1,5 +1,7 @@
 package source.engine.generator;
 
+import com.bosc.assessment.util.CommonUtil;
+
 import source.engine.SourceDescriptor;
 
 public class MapperWritter {
@@ -33,7 +35,7 @@ public class MapperWritter {
         String whiteSpace = "\n\t\t";
         for(String fieldName : sd.getFieldMap().keySet()) {
             String fieldType = sd.getFieldMap().get(fieldName);
-            columnSb.append(whiteSpace + "t." + toUnderscore(fieldName) + " " + fieldName + ",");
+            columnSb.append(whiteSpace + "t." + CommonUtil.toUnderscore(fieldName) + " " + fieldName + ",");
             if(!fieldName.equals("dataTime")) {
                 conditionSb.append(whiteSpace + "<if test=\"query." + fieldName + " != null");
                 if("String".equals(fieldType)) {
@@ -42,7 +44,7 @@ public class MapperWritter {
                     conditionSb.append(" and query." + fieldName + " != -1");
                 }
                 conditionSb.append("\">");
-                conditionSb.append(whiteSpace + "\t and " + toUnderscore(fieldName) + " = #{query." + fieldName + "}");
+                conditionSb.append(whiteSpace + "\t and " + CommonUtil.toUnderscore(fieldName) + " = #{query." + fieldName + "}");
                 conditionSb.append(whiteSpace + "</if>");
             }
         }
@@ -60,7 +62,7 @@ public class MapperWritter {
         insertColumnSb.append(whiteSpace + "\tid,");
         for(String fieldName : sd.getFieldMap().keySet()) {
             String fieldType = sd.getFieldMap().get(fieldName);
-            insertColumnSb.append(whiteSpace + "\t" + toUnderscore(fieldName) + ",");
+            insertColumnSb.append(whiteSpace + "\t" + CommonUtil.toUnderscore(fieldName) + ",");
             insertFieldSb.append(whiteSpace + "\t#{" + fieldName);
             if("String".equals(fieldType)) {
                 insertFieldSb.append(", jdbcType=VARCHAR");

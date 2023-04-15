@@ -1,5 +1,8 @@
 package source.engine.generator;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import source.engine.SourceDescriptor;
 
 public class DtoWritter {

@@ -1,5 +1,7 @@
 package source.engine.generator;
 
+import com.bosc.assessment.util.CommonUtil;
+
 import source.engine.SourceDescriptor;
 
 public class SqlWritter {
@@ -10,7 +12,7 @@ public class SqlWritter {
         sb.append("\n\tid integer not null,");
         for(String fieldName : sd.getFieldMap().keySet()) {
             String fieldType = sd.getFieldMap().get(fieldName);
-            sb.append("\n\t" + toUnderscore(fieldName) + " ");
+            sb.append("\n\t" + CommonUtil.toUnderscore(fieldName) + " ");
             if(fieldType.equals("String")) {
                 sb.append("varchar2(50),");
             } else if(fieldType.equals("Integer")) {

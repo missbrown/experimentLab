@@ -9,9 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.Future;
-import java.util.concurrent.FutureTask;
-import java.util.function.Supplier;
 
 @Service
 public class TaskService {
@@ -94,7 +91,7 @@ public class TaskService {
 
     public Integer execute(final Task task, final int triggerType) {
         Long taskId = task.getId();
-        Long userId = null; // todo
+        Long userId = 0L; // todo
         // create task instance
         TaskInstance taskInstance = new TaskInstance();
         taskInstance.setTaskId(taskId);

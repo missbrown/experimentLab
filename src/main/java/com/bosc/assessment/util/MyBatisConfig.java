@@ -6,7 +6,6 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 
@@ -15,8 +14,6 @@ public class MyBatisConfig {
     @Autowired
     private DataSource dataSource;
 
-    @Autowired
-    private PlatformTransactionManager transactionManager;
 
     @Bean
     public SqlSessionTemplate sqlSessionTemplate() throws Exception {

@@ -1,6 +1,5 @@
 package com.bosc.assessment.pn;
 
-import java.util.List;
 import java.util.Map;
 
 public class Transition {

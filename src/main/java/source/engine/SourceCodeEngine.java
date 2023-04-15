@@ -1,17 +1,12 @@
 package source.engine;
 
-import com.google.common.base.CaseFormat;
 import com.google.gson.Gson;
 
 import source.engine.generator.*;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class SourceCodeEngine {
@@ -22,16 +17,19 @@ public class SourceCodeEngine {
 
     public static SourceDescriptor read(String path) throws Exception {
         File file = new File(path);
-        Scanner scanner = new Scanner(file);
-        if(file.exists()) {
-            StringBuffer sb = new StringBuffer();
-            while(scanner.hasNextLine()) {
-                sb.append(scanner.nextLine());
+        try(Scanner scanner = new Scanner(file);) {
+            if(file.exists()) {
+                StringBuffer sb = new StringBuffer();
+                while(scanner.hasNextLine()) {
+                    sb.append(scanner.nextLine());
+                }
+                String json = sb.toString();
+                json = json.trim();
+                SourceDescriptor sourceDescriptor = new Gson().fromJson(json, SourceDescriptor.class);
+                return sourceDescriptor;
             }
-            String json = sb.toString();
-            json = json.trim();
-            SourceDescriptor sourceDescriptor = new Gson().fromJson(json, SourceDescriptor.class);
-            return sourceDescriptor;
+        } catch(Exception ex) {
+            throw ex;
         }
         return null;
     }
@@ -68,7 +66,4 @@ public class SourceCodeEngine {
         }
     }
 
-    public static String toUnderscore(String str) {
-        return CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, str);
-    }
 }

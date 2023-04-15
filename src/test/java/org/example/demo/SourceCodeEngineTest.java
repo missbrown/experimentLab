@@ -19,6 +19,7 @@ public class SourceCodeEngineTest {
         PageHelper.startPage(page, rows);
         PageInfo<String> pageInfo = new PageInfo<>(list);
         long total = pageInfo.getTotal();
+        System.out.println(total);
     }
 
     @Test

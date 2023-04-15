@@ -49,9 +49,6 @@ public class ServiceWritter {
         sb.append("\n\t\t}");
         sb.append("\n\t\treturn list;");
         sb.append("\n\t}");
-        // create
-        sb.append("\n\n\tpublic void create(" + sd.getDtoName() + " dto) {");
-        sb.append("\n\t}");
         // import
         sb.append("\n\n\tpublic void importFromFile(");
         sb.append(") {");

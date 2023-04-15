@@ -1,7 +1,6 @@
 package com.bosc.assessment.mapper.pn;
 
 import com.bosc.assessment.pn.entity.*;
-import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
