@@ -1,23 +1,29 @@
-<html>
+<!doctype html><!-- required by bootstrap -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-  <title>My Dashboard</title>
+  <title>标签控制台</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"><!--v5.3.0-alpha3-->
+  <link rel="stylesheet" type="text/css" href="/css/tagDashboard.css">
+  <script src="/js/chart.js"></script><!--v4.2.1-->
+  <script type="module" src="/js/tagDashboard.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+
 <body>
+  <!--ensures that the layout spans the full screen-->
   <div class="container-fluid">
-    <h1>My Dashboard</h1>
+    <h1 class="fs-4">标签控制台</h1>
     <hr>
 
     <div class="row">
       <div class="col-md-6">
-        <canvas id="chart1"></canvas>
+        <canvas id="opListChart"></canvas>
       </div>
-      <div class="col-md-6">
-        <canvas id="chart2"></canvas>
+      <div class="col-md-4">
+        <canvas id="ownerListChart"></canvas>
       </div>
     </div>
 
@@ -50,27 +56,6 @@
 
   <script>
     // Define the chart data
-    var chart1Data = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      datasets: [{
-        label: 'Dataset 1',
-        data: [10, 20, 30, 40, 50, 60, 70],
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgba(255, 99, 132, 1)',
-        borderWidth: 1
-      }]
-    };
-
-    var chart2Data = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      datasets: [{
-        label: 'Dataset 2',
-        data: [20, 30, 40, 50, 60, 70, 80],
-        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-        borderColor: 'rgba(54, 162, 235, 1)',
-        borderWidth: 1
-      }]
-    };
 
     var chart3Data = {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -94,51 +79,42 @@
       }]
     };
 
-    // Define the chart options
-    var options = {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
-        }]
-      }
-    };
-
-    // Create the charts
-    var chart1 = new Chart($('#chart1'), {
-      type: 'line',
-      data: chart1Data,
-      options: options
-    });
-
-    var chart2 = new Chart($('#chart2'), {
-      type: 'bar',
-      data: chart2Data,
-      options: options
-    });
 
     var chart3 = new Chart($('#chart3'), {
       type: 'radar',
       data: chart3Data,
-      options: options
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      },
     });
 
     var chart4 = new Chart($('#chart4'), {
       type: 'pie',
       data: chart4Data,
-      options: options
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      },
     });
 
     // Load the table data
-    $.getJSON('data.json', function(data) {
+    $.getJSON('data.json', function (data) {
       var tableData = '';
-      $.each(data, function(index, value) {
+      $.each(data, function (index, value) {
         tableData += '<tr><td>' + value.name + '</td><td>' + value.age + '</td><td>' + value.city + '</td></tr>';
       });
       $('#table-data').html(tableData);
     });
+
   </script>
 
 </body>
+
 </html>

@@ -13,7 +13,6 @@ import java.util.concurrent.CompletableFuture;
 @Service
 public class TaskService {
 
-    @Autowired
     TaskMapper mapper;
 
     private SimpleDAG dag;

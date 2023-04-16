@@ -1,4 +1,4 @@
-package source.engine;
+package com.bosc.assessment.sourceGen.engine;
 
 import java.io.Serializable;
 import java.util.List;

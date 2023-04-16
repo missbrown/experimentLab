@@ -1,4 +1,4 @@
-package source.engine.generator;
+package com.bosc.assessment.sourceGen.engine.generator;
 
 import java.util.Map;
 

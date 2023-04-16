@@ -1,8 +1,8 @@
-package source.engine.generator;
+package com.bosc.assessment.sourceGen.engine.generator;
 
 import com.bosc.assessment.util.CommonUtil;
 
-import source.engine.SourceDescriptor;
+import com.bosc.assessment.sourceGen.engine.SourceDescriptor;
 
 public class MapperWritter {
     

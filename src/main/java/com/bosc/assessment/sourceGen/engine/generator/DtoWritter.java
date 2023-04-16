@@ -1,9 +1,9 @@
-package source.engine.generator;
+package com.bosc.assessment.sourceGen.engine.generator;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import source.engine.SourceDescriptor;
+import com.bosc.assessment.sourceGen.engine.SourceDescriptor;
 
 public class DtoWritter {
     

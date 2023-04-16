@@ -1,8 +1,8 @@
-package source.engine;
+package com.bosc.assessment.sourceGen.engine;
 
 import com.google.gson.Gson;
 
-import source.engine.generator.*;
+import com.bosc.assessment.sourceGen.engine.generator.*;
 
 import java.io.File;
 import java.io.FileOutputStream;

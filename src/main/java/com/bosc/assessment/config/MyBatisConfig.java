@@ -1,4 +1,4 @@
-package com.bosc.assessment.util;
+package com.bosc.assessment.config;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -13,7 +13,6 @@ import javax.sql.DataSource;
 public class MyBatisConfig {
     @Autowired
     private DataSource dataSource;
-
 
     @Bean
     public SqlSessionTemplate sqlSessionTemplate() throws Exception {

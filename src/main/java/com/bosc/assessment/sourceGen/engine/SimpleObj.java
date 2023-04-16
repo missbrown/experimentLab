@@ -1,4 +1,4 @@
-package source.engine;
+package com.bosc.assessment.sourceGen.engine;
 
 public class SimpleObj {
     private String name;
